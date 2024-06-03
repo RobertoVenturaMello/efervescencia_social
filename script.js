@@ -1,32 +1,28 @@
-require('dotenv').config();
-
 document.getElementById('submitButton').addEventListener('click', async () => {
-    const input = document.getElementById('userInput').value;
-    const apiKey = process.env.OPENAI_API_KEY;
+  const input = document.getElementById('userInput').value;
 
-    try {
-        const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                prompt: input,
-                max_tokens: 50
-            })
-        });
+  try {
+    const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer sk-proj-5mbER4a77eEkg6BK8L0sT3BlbkFJTquLJaOQONNhKsqvtt01' // Coloque sua chave de API aqui
+      },
+      body: JSON.stringify({
+        prompt: input,
+        max_tokens: 50
+      })
+    });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const output = data.choices[0].text.trim();
-        document.getElementById('response').innerText = output;
-    } catch (error) {
-        console.error('Error:', error);
-        document.getElementById('response').innerText = 'Ocorreu um erro ao processar sua solicitação.';
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-});
 
+    const data = await response.json();
+    const output = data.choices[0].text.trim();
+    document.getElementById('response').innerText = output;
+  } catch (error) {
+    console.error('Error:', error);
+    document.getElementById('response').innerText = 'Ocorreu um erro ao processar sua solicitação.';
+  }
+});
