@@ -6,7 +6,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer SEU_API_KEY'  // Substitua SEU_API_KEY pela sua chave real
+                'Authorization': 'Bearer sk-proj-5mbER4a77eEkg6BK8L0sT3BlbkFJTquLJaOQONNhKsqvtt01'
             },
             body: JSON.stringify({
                 prompt: input,
@@ -24,7 +24,6 @@ document.getElementById('submitButton').addEventListener('click', async () => {
 
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('response').innerText = 'Ocorreu um erro ao processar sua solicitação.';
+        document.getElementById('response').innerText = 'Ocorreu um erro ao processar sua solicitação. Detalhes do erro: ' + error.message;
     }
 });
-
