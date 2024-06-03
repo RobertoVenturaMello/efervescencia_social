@@ -6,7 +6,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer sk-proj-5mbER4a77eEkg6BK8L0sT3BlbkFJTquLJaOQONNhKsqvtt01' // Coloque sua chave de API aqui
+        'Authorization': 'Bearer sk-proj-5mbER4a77eEkg6BK8L0sT3BlbkFJTquLJaOQONNhKsqvtt01'
       },
       body: JSON.stringify({
         prompt: input,
