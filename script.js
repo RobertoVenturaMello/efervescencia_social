@@ -1,12 +1,15 @@
+require('dotenv').config();
+
 document.getElementById('submitButton').addEventListener('click', async () => {
     const input = document.getElementById('userInput').value;
+    const apiKey = process.env.OPENAI_API_KEY;
 
     try {
         const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer SEU_API_KEY`
+                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 prompt: input,
@@ -26,3 +29,4 @@ document.getElementById('submitButton').addEventListener('click', async () => {
         document.getElementById('response').innerText = 'Ocorreu um erro ao processar sua solicitação.';
     }
 });
+
