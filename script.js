@@ -6,7 +6,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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' // Substitua pela sua chave real
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 prompt: input,
